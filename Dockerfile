@@ -1,8 +1,8 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
 COPY . .
 
-RUN apk add --no-cache --upgrade grep
+RUN apt -y update && apt -y install dnsutils grep curl && rm -rf /var/lib/apt/lists/*
 
 RUN chmod +x 403bypass.sh
 
